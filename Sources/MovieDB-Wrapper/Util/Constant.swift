@@ -9,5 +9,5 @@ import Foundation
 
 public struct K {
     static let baseURL = "https://api.themoviedb.org/3/"
-    static var accessToken = ""
+    public static var accessToken = ""
 }
