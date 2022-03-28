@@ -7,7 +7,8 @@
 
 import Foundation
 
-public struct K {
+public struct K
+{
     static let baseURL = "https://api.themoviedb.org/3/"
     public static var accessToken = ""
 }
