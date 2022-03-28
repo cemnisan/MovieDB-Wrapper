@@ -9,14 +9,14 @@ import Foundation
 
 public struct SimilarMovies: Codable
 {
-    let page: Int?
-    let results: [SimilarMoviesResult]?
-    let totalPages, totalResults: Int?
+    public let page: Int?
+    public let results: [SimilarMoviesResult]?
+    public let totalPages, totalResults: Int?
 }
 
 extension SimilarMovies
 {
-    enum CodingKeys: String, CodingKey
+    public enum CodingKeys: String, CodingKey
     {
         case page, results
         case totalPages = "total_pages"
@@ -40,7 +40,7 @@ public struct SimilarMoviesResult: Codable
 
 extension SimilarMoviesResult
 {
-    enum CodingKeys: String, CodingKey
+    public enum CodingKeys: String, CodingKey
     {
         case adult
         case backdropPath = "backdrop_path"

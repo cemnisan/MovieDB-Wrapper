@@ -9,15 +9,15 @@ import Foundation
 
 public struct PopularMovies: Codable
 {
-    let page: Int
-    let results: [Movie]
-    let totalPages: Int
-    let totalResults: Int
+    public let page: Int
+    public let results: [Movie]
+    public let totalPages: Int
+    public let totalResults: Int
 }
 
 extension PopularMovies
 {
-    enum CodingKeys: String, CodingKey
+    public  enum CodingKeys: String, CodingKey
     {
         case page
         case results

@@ -9,14 +9,14 @@ import Foundation
 
 public struct MovieReviews: Codable
 {
-    let id, page: Int?
-    let results: [MovieReviewsResult]?
-    let totalPages, totalResults: Int?
+    public let id, page: Int?
+    public let results: [MovieReviewsResult]?
+    public let totalPages, totalResults: Int?
 }
 
 extension MovieReviews
 {
-    enum CodingKeys: String, CodingKey
+    public enum CodingKeys: String, CodingKey
     {
         case id, page, results
         case totalPages = "total_pages"
@@ -33,7 +33,7 @@ public struct MovieReviewsResult: Codable {
 
 extension MovieReviewsResult
 {
-    enum CodingKeys: String, CodingKey
+    public enum CodingKeys: String, CodingKey
     {
         case author
         case authorDetails = "author_details"
@@ -45,15 +45,15 @@ extension MovieReviewsResult
     }
 }
 
-struct AuthorDetails: Codable
+public struct AuthorDetails: Codable
 {
-    let name, username, avatarPath: String?
-    let rating: Int?
+    public let name, username, avatarPath: String?
+    public let rating: Int?
 }
 
 extension AuthorDetails
 {
-    enum CodingKeys: String, CodingKey
+    public enum CodingKeys: String, CodingKey
     {
         case name, username
         case avatarPath = "avatar_path"

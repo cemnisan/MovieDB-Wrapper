@@ -9,32 +9,32 @@ import Foundation
 
 public struct MovieDetail: Codable
 {
-    let adult: Bool
-    let backdropPath: String
-    let budget: Int
-    let genres: [Genres]
-    let homepage: String
-    let id: Int
-    let imdbID: String
-    let originalLanguage: String
-    let originalTitle: String
-    let overview: String
-    let popularity: Double
-    let posterPath: String
-    let releaseDate: String
-    let revenue: Int
-    let runtime: Int
-    let status: String
-    let tagline: String
-    let title: String
-    let video: Bool
-    let voteAverage: Double
-    let voteCount: Int
+    public let adult: Bool
+    public let backdropPath: String
+    public let budget: Int
+    public let genres: [Genres]
+    public let homepage: String
+    public let id: Int
+    public let imdbID: String
+    public let originalLanguage: String
+    public let originalTitle: String
+    public let overview: String
+    public let popularity: Double
+    public let posterPath: String
+    public let releaseDate: String
+    public let revenue: Int
+    public let runtime: Int
+    public let status: String
+    public let tagline: String
+    public let title: String
+    public let video: Bool
+    public let voteAverage: Double
+    public let voteCount: Int
 }
 
 extension MovieDetail
 {
-    enum CodingKeys: String, CodingKey
+    public enum CodingKeys: String, CodingKey
     {
         case adult
         case backdropPath = "backdrop_path"
@@ -62,6 +62,6 @@ extension MovieDetail
 
 public struct Genres: Codable
 {
-    let id: Int
-    let name: String
+    public let id: Int
+    public let name: String
 }

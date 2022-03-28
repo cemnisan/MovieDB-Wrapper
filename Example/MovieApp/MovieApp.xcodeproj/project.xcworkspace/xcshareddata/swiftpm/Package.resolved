@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "MovieDB-Wrapper",
+        "repositoryURL": "https://github.com/cemnisan/MovieDB-Wrapper.git",
+        "state": {
+          "branch": "main",
+          "revision": "b65ed5a9fc6ff211a20e8c651c97f30381714c22",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}

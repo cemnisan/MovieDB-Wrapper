@@ -9,15 +9,15 @@ import Foundation
 
 public struct UpComingMovies: Codable
 {
-    let dates: Dates?
-    let page: Int?
-    let results: [UpComingMoviesResult]?
-    let totalPages, totalResults: Int?
+    public let dates: Dates?
+    public let page: Int?
+    public let results: [UpComingMoviesResult]?
+    public let totalPages, totalResults: Int?
 }
 
 extension UpComingMovies
 {
-    enum CodingKeys: String, CodingKey
+    public enum CodingKeys: String, CodingKey
     {
         case dates, page, results
         case totalPages = "total_pages"
@@ -57,7 +57,7 @@ extension UpComingMoviesResult
     }
 }
 
-struct Dates: Codable
+public struct Dates: Codable
 {
     let maximum, minimum: String?
 }
