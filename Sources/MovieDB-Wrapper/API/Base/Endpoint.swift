@@ -7,12 +7,14 @@
 
 import Foundation
 
-public protocol Endpoint {
+public protocol Endpoint
+{
     var baseURL: String { get }
     var path: String { get }
     var method: HTTPMethod { get }
     var header: [String: String]? { get }
     var body: [String: String]? { get }
+    var url: URLRequest? { get }
 }
 
 extension Endpoint
@@ -34,5 +36,20 @@ extension Endpoint
             "Authorization": "Bearer \(K.accessToken)",
             "Content-Type": "application/json;charset=utf-8"
         ]
+    }
+    
+    public var url: URLRequest? {
+        guard let url = URL(string: baseURL + path) else { return nil }
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = method.rawValue
+        urlRequest.allHTTPHeaderFields = header
+        
+        if let body = body {
+            urlRequest.httpBody = try? JSONSerialization.data(withJSONObject: body,
+                                                              options: [])
+        }
+        
+        return urlRequest
     }
 }
