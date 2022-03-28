@@ -7,10 +7,6 @@
 
 import Foundation
 
-public struct Results<T:Codable>: Codable {
-    let results: T
-}
-
 public struct Movies: Codable
 {
     let adult: Bool?

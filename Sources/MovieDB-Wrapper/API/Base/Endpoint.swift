@@ -15,8 +15,24 @@ public protocol Endpoint {
     var body: [String: String]? { get }
 }
 
-extension Endpoint {
+extension Endpoint
+{
     public var baseURL: String {
-        return "https://api.themoviedb.org/3/"
+        return K.baseURL
+    }
+    
+    public var method: HTTPMethod {
+        return .get
+    }
+    
+    public var body: [String: String]? {
+        return nil
+    }
+    
+    public var header: [String: String]? {
+        return [
+            "Authorization": "Bearer \(K.accessToken)",
+            "Content-Type": "application/json;charset=utf-8"
+        ]
     }
 }
