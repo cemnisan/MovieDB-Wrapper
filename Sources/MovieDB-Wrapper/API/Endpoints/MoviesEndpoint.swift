@@ -27,7 +27,7 @@ extension MoviesEndpoint: Endpoint {
     }
     
     public var header: [String : String]? {
-        let accessToken = "8b658eaa6b7ec25d913423d4afefe317"
+        let accessToken = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4YjY1OGVhYTZiN2VjMjVkOTEzNDIzZDRhZmVmZTMxNyIsInN1YiI6IjVmOTk0YTRkMTc3OTJjMDAzNjNmNTBkNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.OvEG-cket_cjHmRgRbYIYZA5GbG__Dl2KWhbTmIRrIE"
         
         switch self {
         case .populerMovies:
