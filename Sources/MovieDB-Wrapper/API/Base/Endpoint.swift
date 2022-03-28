@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol Endpoint {
+public protocol Endpoint {
     var baseURL: String { get }
     var path: String { get }
     var method: HTTPMethod { get }
@@ -16,7 +16,7 @@ protocol Endpoint {
 }
 
 extension Endpoint {
-    var baseURL: String {
+    public var baseURL: String {
         return "https://api.themoviedb.org/3/"
     }
 }

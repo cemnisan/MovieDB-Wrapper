@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct PopulerMovies: Codable {
+public struct PopulerMovies: Codable {
     let page: Int
     let results: [Movies]
     let totalPages: Int

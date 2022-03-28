@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol MoviesServiceable {
+public protocol MoviesServiceable {
     func getPopularMovies() async -> Result<PopulerMovies, RequestError>
 }
 

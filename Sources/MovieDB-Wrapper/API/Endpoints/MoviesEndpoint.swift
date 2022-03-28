@@ -7,26 +7,26 @@
 
 import Foundation
 
-enum MoviesEndpoint {
+public enum MoviesEndpoint {
     case populerMovies
 }
 
 extension MoviesEndpoint: Endpoint {
-    var path: String {
+    public var path: String {
         switch self {
         case .populerMovies:
             return "movie/popular"
         }
     }
     
-    var method: HTTPMethod {
+    public var method: HTTPMethod {
         switch self {
         case .populerMovies:
             return .get
         }
     }
     
-    var header: [String : String]? {
+    public var header: [String : String]? {
         let accessToken = "8b658eaa6b7ec25d913423d4afefe317"
         
         switch self {
@@ -38,7 +38,7 @@ extension MoviesEndpoint: Endpoint {
         }
     }
     
-    var body: [String : String]? {
+    public var body: [String : String]? {
         switch self {
         case .populerMovies:
             return nil

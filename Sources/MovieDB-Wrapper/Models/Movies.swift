@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Results<T:Codable>: Codable {
+public struct Results<T:Codable>: Codable {
     let results: T
 }
 
-struct Movies: Codable
+public struct Movies: Codable
 {
     let adult: Bool?
     let backdropPath: String?
