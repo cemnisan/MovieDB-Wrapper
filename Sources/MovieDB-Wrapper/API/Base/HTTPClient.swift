@@ -7,12 +7,14 @@
 
 import Foundation
 
+@available(iOS 15.0, *)
 @available(macOS 12.0, *)
 public protocol HTTPClient {
     func execute<T: Codable>(endpoint: Endpoint,
                              responseModel: T.Type) async -> Result<T, RequestError>
 }
 
+@available(iOS 15.0, *)
 @available(macOS 12.0, *)
 extension HTTPClient {
     public func execute<T:Codable>(
