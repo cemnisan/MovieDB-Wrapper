@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct PopulerMovies: Codable
+public struct PopularMovies: Codable
 {
     let page: Int
     let results: [Movie]
@@ -15,7 +15,7 @@ public struct PopulerMovies: Codable
     let totalResults: Int
 }
 
-extension PopulerMovies
+extension PopularMovies
 {
     enum CodingKeys: String, CodingKey
     {
