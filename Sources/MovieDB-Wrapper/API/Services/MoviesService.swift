@@ -12,8 +12,8 @@ public protocol MoviesServiceable {
 }
 
 @available(macOS 12.0, *)
-final class MovieService: HTTPClient, MoviesServiceable {
-    func getPopularMovies() async -> Result<PopulerMovies, RequestError> {
+public final class MovieService: HTTPClient, MoviesServiceable {
+    public func getPopularMovies() async -> Result<PopulerMovies, RequestError> {
         return await execute(endpoint: MoviesEndpoint.populerMovies, responseModel: PopulerMovies.self)
     }
 }
