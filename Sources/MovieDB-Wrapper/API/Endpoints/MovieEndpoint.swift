@@ -7,7 +7,8 @@
 
 import Foundation
 
-public enum MovieEndpoint {
+public enum MovieEndpoint
+{
     case populerMovies(page: Int)
     case movieDetail(id: Int)
     case movieReviews(id: Int, page: Int)

@@ -20,7 +20,7 @@ public protocol Endpoint
 extension Endpoint
 {
     public var baseURL: String {
-        return K.baseURL
+        return Config.baseURL
     }
     
     public var method: HTTPMethod {
@@ -33,7 +33,7 @@ extension Endpoint
     
     public var header: [String: String]? {
         return [
-            "Authorization": "Bearer \(K.accessToken)",
+            "Authorization": "Bearer \(Config.accessToken)",
             "Content-Type": "application/json;charset=utf-8"
         ]
     }

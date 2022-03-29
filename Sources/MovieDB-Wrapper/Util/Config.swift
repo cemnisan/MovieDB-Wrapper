@@ -2,12 +2,12 @@
 //  File.swift
 //  
 //
-//  Created by Cem Nisan on 28.03.2022.
+//  Created by Cem Nisan on 29.03.2022.
 //
 
 import Foundation
 
-public struct K
+public struct Config
 {
     static let baseURL = "https://api.themoviedb.org/3/"
     public static var accessToken = ""
