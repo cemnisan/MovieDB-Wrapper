@@ -5,7 +5,7 @@
 //  Created by Cem Nisan on 29.03.2022.
 //
 
-import UIKit
+import UIKit.UIStoryboard
 
 final class MoviesBuilder
 {

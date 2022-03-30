@@ -5,7 +5,6 @@
 //  Created by Cem Nisan on 29.03.2022.
 //
 
-import Foundation
 import MovieDB_Wrapper
 
 let app = AppContainer()

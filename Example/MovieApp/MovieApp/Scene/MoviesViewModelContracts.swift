@@ -4,14 +4,14 @@
 //
 //  Created by Cem Nisan on 29.03.2022.
 //
-import Foundation
+
 import MovieDB_Wrapper
 
 protocol MoviesViewModelProtocol
 {
-    var delegate: MoviesViewModelDelegate? { get set}
+    var delegate: MoviesViewModelDelegate? { get set }
     
-    func loadPopularMovies(with page: Int)
+    func loadPopularMovies(with pageNumber: Int)
     func numberOfPopularMovies() -> Int
     func popularMoviesAtIndex(_ index: Int) -> Movie
     func isPageNumberTotalNumber() -> Bool

@@ -6,7 +6,6 @@
 //
 
 import UIKit
-import MovieDB_Wrapper
 
 final class MoviesViewController: UIViewController
 {
@@ -22,9 +21,9 @@ final class MoviesViewController: UIViewController
         configure()
     }
     
-    override func viewWillAppear(_ animated: Bool)
+    override func viewDidAppear(_ animated: Bool)
     {
-        super.viewWillAppear(animated)
+        super.viewDidAppear(animated)
         
         viewModel.loadPopularMovies(with: pageNumber)
     }
@@ -89,7 +88,7 @@ extension MoviesViewController: UITableViewDataSource
 
 extension MoviesViewController: UITableViewDelegate { }
 
-extension MoviesViewController: UIScrollViewDelegate
+extension MoviesViewController
 {
     func scrollViewDidEndDragging(_ scrollView: UIScrollView,
                                   willDecelerate decelerate: Bool)
@@ -99,7 +98,7 @@ extension MoviesViewController: UIScrollViewDelegate
         
         if maximumOffset - currentOffset <= 50
         {
-            if viewModel.isPageNumberTotalNumber()
+            if !viewModel.isPageNumberTotalNumber()
             {
                 pageNumber += 1
                 viewModel.loadPopularMovies(with: pageNumber)

@@ -14,7 +14,7 @@ final class MoviesViewModel
     
     private var popularMovies: [Movie] = []
     private var pageNumber:Int?
-    private var currentPageNumber: Int?
+    private var totalPageNumber: Int?
     
     init(service: MoviesServiceable)
     {
@@ -24,15 +24,15 @@ final class MoviesViewModel
 
 extension MoviesViewModel: MoviesViewModelProtocol
 {
-    func loadPopularMovies(with page: Int)
+    func loadPopularMovies(with pageNumber: Int)
     {
         Task(priority: .background) {
-            let results = await service.getPopularMovies(page: page)
+            let results = await service.getPopularMovies(page: pageNumber)
             
             switch results {
             case .success(let popularMovies):
-                self.pageNumber = page
-                self.currentPageNumber = popularMovies.totalPages
+                self.pageNumber = pageNumber
+                self.totalPageNumber = popularMovies.totalPages
                 self.popularMovies.append(contentsOf: popularMovies.results)
                 self.notify(output: .loadPopularMovies(.success(true)))
             case .failure(let error):
@@ -53,11 +53,10 @@ extension MoviesViewModel: MoviesViewModelProtocol
     
     func isPageNumberTotalNumber() -> Bool
     {
-        if pageNumber != currentPageNumber {
+        if pageNumber == totalPageNumber {
             return true
-        } else {
-            return false
         }
+        return false
     }
 }
 

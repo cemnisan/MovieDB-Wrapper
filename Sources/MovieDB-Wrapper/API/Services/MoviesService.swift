@@ -14,35 +14,35 @@ public final class MovieService: HTTPClient, MoviesServiceable
 
 extension MovieService
 {
-    public func getPopularMovies(page: Int) async -> Result<PopularMovies, RequestError>
+    public func getPopularMovies(pageNumber: Int) async -> Result<PopularMovies, RequestError>
     {
-        return await execute(endpoint: MovieEndpoint.populerMovies(page: page),
+        return await execute(endpoint: PopularMoviesEndpoint.popularMovies(pageNumber: pageNumber),
                              responseModel: PopularMovies.self)
     }
     
     public func getMovieDetails(id: Int) async -> Result<MovieDetail, RequestError>
     {
-        return await execute(endpoint: MovieEndpoint.movieDetail(id: id),
+        return await execute(endpoint: MovieDetailsEndpoint.movieDetail(id: id),
                              responseModel: MovieDetail.self)
     }
     
     public func getMovieReviews(id: Int,
-                                page: Int) async -> Result<MovieReviews, RequestError>
+                                pageNumber: Int) async -> Result<MovieReviews, RequestError>
     {
-        return await execute(endpoint: MovieEndpoint.movieReviews(id: id, page: page),
+        return await execute(endpoint: MovieReviewsEndpoint.movieReviews(id: id, pageNumber: pageNumber),
                              responseModel: MovieReviews.self)
     }
     
     public func getSimilarMovies(id: Int,
-                                 page: Int) async -> Result<SimilarMovies, RequestError>
+                                 pageNumber: Int) async -> Result<SimilarMovies, RequestError>
     {
-        return await execute(endpoint: MovieEndpoint.similarMovies(id: id, page: page),
+        return await execute(endpoint: SimilarMoviesEndpoint.similarMovies(id: id, pageNumber: pageNumber),
                              responseModel: SimilarMovies.self)
     }
     
-    public func getUpComingMovies(page: Int) async -> Result<UpComingMovies, RequestError>
+    public func getUpComingMovies(pageNumber: Int) async -> Result<UpComingMovies, RequestError>
     {
-        return await execute(endpoint: MovieEndpoint.upcomingMovies(page: page),
+        return await execute(endpoint: UpcomingMoviesEndpoint.upcomingMovies(pageNumber: pageNumber),
                              responseModel: UpComingMovies.self)
     }
 }

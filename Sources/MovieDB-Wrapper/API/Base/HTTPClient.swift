@@ -10,14 +10,17 @@ import Foundation
 
 public protocol HTTPClient
 {
-    func execute<T: Codable>(endpoint: Endpoint,
-                             responseModel: T.Type) async -> Result<T, RequestError>
+    func execute<M: Codable,
+                 E: Endpoint>(endpoint: E,
+                              responseModel: M.Type) async -> Result<M, RequestError>
 }
 
 extension HTTPClient
 {
-    public func execute<T:Codable>(endpoint: Endpoint,
-                                   responseModel: T.Type) async -> Result<T, RequestError> {
+    public func execute<M: Codable,
+                        E: Endpoint>(endpoint: E,
+                                     responseModel: M.Type) async -> Result<M, RequestError>
+    {
         guard let request = endpoint.url else { return .failure(.invalidURL) }
     
         do {
@@ -27,8 +30,7 @@ extension HTTPClient
             switch response.statusCode {
             case 200...299:
                 guard let decodedResponse = try? JSONDecoder()
-                        .decode(responseModel,
-                                from: data) else { return .failure(.decode) }
+                        .decode(responseModel, from: data) else { return .failure(.decode) }
                 return .success(decodedResponse)
             case 401:
                 return .failure(.unauthorized)
@@ -40,3 +42,5 @@ extension HTTPClient
         }
     }
 }
+
+
