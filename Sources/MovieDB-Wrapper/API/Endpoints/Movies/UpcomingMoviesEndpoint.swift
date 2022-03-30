@@ -17,7 +17,9 @@ extension UpcomingMoviesEndpoint
     public var path: String {
         switch self {
         case .upcomingMovies(let pageNumber):
-           return "movie/upcoming/?page=\(pageNumber)"
+            let params = "page=\(pageNumber)"
+            
+            return "movie/upcoming/?\(params)"
         }
     }
 }

@@ -17,7 +17,9 @@ extension PopularMoviesEndpoint
     public var path: String {
         switch self {
         case .popularMovies(let pageNumber):
-            return "movie/popular/?page=\(pageNumber)"
+            let params = "page=\(pageNumber)"
+            
+            return "movie/popular/?\(params)"
         }
     }
 }
