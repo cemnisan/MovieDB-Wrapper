@@ -14,7 +14,7 @@ public final class SearchService
 
 extension SearchService: HTTPClient, SearchServiceable
 {
-    func searchMovies(
+    public func searchMovies(
         with query: String,
         language: String = "en-US",
         pageNumber: Int = 1,

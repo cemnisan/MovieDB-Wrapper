@@ -17,7 +17,7 @@ extension MovieReviewsEndpoint
     public var path: String {
         switch self {
         case .movieReviews(let id, let pageNumber):
-            return "/movie/\(id)&page=\(pageNumber)"
+            return "movie/\(id)?page=\(pageNumber)"
         }
     }
 }

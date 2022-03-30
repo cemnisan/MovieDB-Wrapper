@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol SearchServiceable
+public protocol SearchServiceable
 {
     func searchMovies(
         with query: String,

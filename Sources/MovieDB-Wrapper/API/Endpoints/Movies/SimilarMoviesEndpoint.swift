@@ -17,7 +17,7 @@ extension SimilarMoviesEndpoint
     public var path: String {
         switch self {
         case .similarMovies(let id, let pageNumber):
-            return "/movie/\(id)/similar?page=\(pageNumber)"
+            return "movie/\(id)/similar?page=\(pageNumber)"
         }
     }
 }

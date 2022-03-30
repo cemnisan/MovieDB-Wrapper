@@ -12,7 +12,7 @@ final class MoviesViewModel
     private let service: MoviesServiceable
     weak var delegate: MoviesViewModelDelegate?
     
-    private var popularMovies: [Movie] = []
+    private var popularMovies: [Movies] = []
     private var pageNumber:Int?
     private var totalPageNumber: Int?
     
@@ -47,7 +47,7 @@ extension MoviesViewModel: MoviesViewModelProtocol
         return popularMovies.count
     }
     
-    func popularMoviesAtIndex(_ index: Int) -> Movie
+    func popularMoviesAtIndex(_ index: Int) -> Movies
     {
         return popularMovies[index]
     }
@@ -58,6 +58,13 @@ extension MoviesViewModel: MoviesViewModelProtocol
             return true
         }
         return false
+    }
+    
+    func exSearch() {
+        let service = SearchService()
+        Task(priority: .background) {
+            let result = await service.
+        }
     }
 }
 

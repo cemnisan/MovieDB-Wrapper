@@ -7,12 +7,8 @@
 
 import Foundation
 
-// Welcome.swift
-
-import Foundation
-
 // MARK: - MoviesSearchResult
-struct SearchMoviesResult: Codable
+public struct SearchMoviesResult: Codable
 {
     var page: Int
     var results: [Movies]

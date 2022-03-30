@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SearchMoviesEndpoint: Endpoint
+public enum SearchMoviesEndpoint: Endpoint
 {
     case searchMovies(language: String,
                       query: String,

@@ -17,7 +17,7 @@ extension MovieDetailsEndpoint
     public var path: String {
         switch self {
         case .movieDetail(let id):
-            return "/movie/\(id)"
+            return "movie/\(id)"
         }
     }
 }
