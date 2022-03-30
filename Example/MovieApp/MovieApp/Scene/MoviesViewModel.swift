@@ -26,8 +26,9 @@ extension MoviesViewModel: MoviesViewModelProtocol
 {
     func loadPopularMovies(with pageNumber: Int)
     {
-        Task(priority: .background) {
-            let results = await service.getPopularMovies(page: pageNumber)
+        Task(priority: .background)
+        {
+            let results = await service.getPopularMovies(pageNumber: pageNumber)
             
             switch results {
             case .success(let popularMovies):

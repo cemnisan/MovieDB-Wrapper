@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct Movie: Codable
+public struct Movies: Codable
 {
     public let adult: Bool?
     public let backdropPath: String?
@@ -21,7 +21,7 @@ public struct Movie: Codable
     public let voteCount: Int?
 }
 
-extension Movie
+extension Movies
 {
     public enum CodingKeys: String, CodingKey
     {

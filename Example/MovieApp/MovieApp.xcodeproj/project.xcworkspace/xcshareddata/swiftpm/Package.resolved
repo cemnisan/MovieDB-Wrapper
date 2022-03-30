@@ -1,16 +1,14 @@
 {
-  "object": {
-    "pins": [
-      {
-        "package": "MovieDB-Wrapper",
-        "repositoryURL": "https://github.com/cemnisan/MovieDB-Wrapper.git",
-        "state": {
-          "branch": "main",
-          "revision": "cc5da7d7056213809fdf20b55b3469519196a9dc",
-          "version": null
-        }
+  "pins" : [
+    {
+      "identity" : "moviedb-wrapper",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/cemnisan/MovieDB-Wrapper.git",
+      "state" : {
+        "branch" : "main",
+        "revision" : "83a615e4f5945426d8299a6aa3d6896a5ca7e7a6"
       }
-    ]
-  },
-  "version": 1
+    }
+  ],
+  "version" : 2
 }
