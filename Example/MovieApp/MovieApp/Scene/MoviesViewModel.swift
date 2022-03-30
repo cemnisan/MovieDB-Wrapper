@@ -59,13 +59,6 @@ extension MoviesViewModel: MoviesViewModelProtocol
         }
         return false
     }
-    
-    func exSearch() {
-        let service = SearchService()
-        Task(priority: .background) {
-            let result = await service.
-        }
-    }
 }
 
 extension MoviesViewModel

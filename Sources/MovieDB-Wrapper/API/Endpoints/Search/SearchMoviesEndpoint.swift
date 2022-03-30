@@ -23,7 +23,8 @@ extension SearchMoviesEndpoint
                            let query,
                            let pageNumber,
                            let includeAdult):
-            return "search/movie?language=\(language)&query=\(query)&page=\(pageNumber)&include_adult=\(includeAdult)"
+            let sluggedQuery = query.addPlusToMiddleSpaces()()
+            return "search/movie?language=\(language)&query=\(sluggedQuery)&page=\(pageNumber)&include_adult=\(includeAdult)"
         }
     }
 }
