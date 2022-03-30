@@ -15,6 +15,7 @@ protocol MoviesViewModelProtocol
     func numberOfPopularMovies() -> Int
     func popularMoviesAtIndex(_ index: Int) -> Movies
     func isPageNumberTotalNumber() -> Bool
+    func exSearch()
 }
 
 protocol MoviesViewModelDelegate: AnyObject

@@ -59,6 +59,16 @@ extension MoviesViewModel: MoviesViewModelProtocol
         }
         return false
     }
+    
+    func exSearch() {
+        let service: SearchServiceable = SearchService()
+        
+        Task(priority: .background) {
+            let results = await service.searchMovies(with: "Fight Club", language: "en-US", pageNumber: 1, includeAdult: false)
+            print(SearchMoviesEndpoint.searchMovies(language: "en-US", query: "Fight Club", pageNumber: 1, includeAdult: false).url)
+            print(results[0])
+        }
+    }
 }
 
 extension MoviesViewModel
