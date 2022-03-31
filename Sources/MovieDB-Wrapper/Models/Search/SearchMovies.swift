@@ -10,9 +10,9 @@ import Foundation
 // MARK: - MoviesSearchResult
 public struct SearchMoviesResult: Codable
 {
-    var page: Int
-    var results: [Movies]
-    var totalPages, totalResults: Int
+    public let page: Int
+    public let results: [Movies]
+    public let totalPages, totalResults: Int
 }
 
 extension SearchMoviesResult

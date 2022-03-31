@@ -59,6 +59,30 @@ extension MoviesViewModel: MoviesViewModelProtocol
         }
         return false
     }
+    
+    func exSearch()
+    {
+        let service: SearchServiceable = SearchService()
+        
+        Task(priority: .background) {
+            let results = await service.searchMovies(
+                query: "The Dark Knight",
+                language: nil,
+                pageNumber: nil,
+                includeAdult: nil,
+                region: nil,
+                year: 1999,
+                primaryReleaseYear: nil)
+            switch results
+            {
+            case .success(let results):
+                print(SearchMoviesEndpoint.searchMovies(language: nil, query: "The Dark Knight", pageNumber: nil, includeAdult: nil, region: nil, year: 1999, primaryReleaseYear: nil).url)
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
 }
 
 extension MoviesViewModel

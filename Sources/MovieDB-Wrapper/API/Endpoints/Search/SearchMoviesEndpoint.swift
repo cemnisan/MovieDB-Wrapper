@@ -25,16 +25,19 @@ extension SearchMoviesEndpoint
         case .searchMovies(let language,
                            let query,
                            let pageNumber,
-                           let includeAdult, let region, let year, let primaryReleaseYear):
+                           let includeAdult,
+                           let region,
+                           let year,
+                           let primaryReleaseYear):
             let sluggedQuery = query.addPlusToMiddleSpaces()
-            let params:[String: Any?] = [
-                "language": language,
+            let params:[String: Any] = [
+                "language": language!,
                 "query": sluggedQuery,
-                "page": String(describing: pageNumber ?? nil),
-                "include_adult": String(describing: includeAdult ?? nil),
-                "region": region,
-                "year": String(describing: year ?? nil),
-                "primary_release_yeaer": String(describing: primaryReleaseYear ?? nil)
+                "page": pageNumber!,
+                "include_adult": includeAdult!,
+                "region": region!,
+                "year": year!,
+                "primary_release_yeaer": primaryReleaseYear!
             ]
             let stringFromParams = params.compactMapValues { $0 }.stringFromHttpParameters()
             
