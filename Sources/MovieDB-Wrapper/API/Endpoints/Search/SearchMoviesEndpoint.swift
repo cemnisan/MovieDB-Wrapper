@@ -30,7 +30,7 @@ extension SearchMoviesEndpoint
                            let year,
                            let primaryReleaseYear):
             let sluggedQuery = query.addPlusToMiddleSpaces()
-            let params:[String: Any?] = [
+            let queryDict:[String: Any?] = [
                 "language": language ?? nil,
                 "query": sluggedQuery,
                 "page": pageNumber ?? nil,
@@ -39,9 +39,9 @@ extension SearchMoviesEndpoint
                 "year": year ?? nil,
                 "primary_release_yeaer": primaryReleaseYear ?? nil
             ]
-            let stringFromParams = params.compactMapValues { $0 }.stringFromHttpParameters()
-            
-            return "search/movie?\(stringFromParams)"
+            let queryFromDict = queryDict.compactMapValues { $0 }.queryFromDictionary()
+           
+            return "search/movie?\(queryFromDict)"
         }
     }
 }

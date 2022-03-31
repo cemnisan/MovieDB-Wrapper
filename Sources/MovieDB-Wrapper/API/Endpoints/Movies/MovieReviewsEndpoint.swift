@@ -9,7 +9,9 @@ import Foundation
 
 enum MovieReviewsEndpoint: Endpoint
 {
-    case movieReviews(id: Int, pageNumber: Int)
+    case movieReviews(id: Int,
+                      language: String?,
+                      pageNumber: Int?)
 }
 
 extension MovieReviewsEndpoint
@@ -17,10 +19,14 @@ extension MovieReviewsEndpoint
     public var path: String {
         switch self {
         case .movieReviews(let id,
+                           let language,
                            let pageNumber):
-            let params = "page=\(pageNumber)"
+            let queryDict: [String: Any?] = [
+                "language": language ?? nil,
+                "page": pageNumber ?? nil]
+            let queryFromDict = queryDict.compactMapValues { $0 }.queryFromDictionary()
             
-            return "movie/\(id)?\(params)"
+            return "movie/\(id)?\(queryFromDict)"
         }
     }
 }

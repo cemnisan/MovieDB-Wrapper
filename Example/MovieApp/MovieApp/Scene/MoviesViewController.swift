@@ -26,7 +26,6 @@ final class MoviesViewController: UIViewController
         super.viewDidAppear(animated)
         
         viewModel.loadPopularMovies(with: pageNumber)
-        viewModel.exSearch()
     }
 }
 

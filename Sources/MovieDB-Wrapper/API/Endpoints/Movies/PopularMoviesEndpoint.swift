@@ -9,17 +9,25 @@ import Foundation
 
 public enum PopularMoviesEndpoint: Endpoint
 {
-    case popularMovies(pageNumber: Int)
+    case popularMovies(language:String?,
+                       pageNumber: Int?,
+                       region: String?)
 }
 
 extension PopularMoviesEndpoint
 {
     public var path: String {
         switch self {
-        case .popularMovies(let pageNumber):
-            let params = "page=\(pageNumber)"
+        case .popularMovies(let language,
+                            let pageNumber,
+                            let region):
+            let queryDict: [String: Any?] = [
+                "language": language ?? nil,
+                "page": pageNumber ?? nil,
+                "region": region ?? nil]
+            let queryFromDict = queryDict.compactMapValues { $0 }.queryFromDictionary()
             
-            return "movie/popular/?\(params)"
+            return "movie/popular/?\(queryFromDict)"
         }
     }
 }

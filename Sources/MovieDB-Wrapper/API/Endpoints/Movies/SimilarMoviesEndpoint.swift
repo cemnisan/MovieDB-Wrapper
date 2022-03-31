@@ -9,7 +9,9 @@ import Foundation
 
 enum SimilarMoviesEndpoint: Endpoint
 {
-    case similarMovies(id: Int, pageNumber: Int)
+    case similarMovies(id: Int,
+                       language: String?,
+                       pageNumber: Int?)
 }
 
 extension SimilarMoviesEndpoint
@@ -17,10 +19,14 @@ extension SimilarMoviesEndpoint
     public var path: String {
         switch self {
         case .similarMovies(let id,
+                            let language,
                             let pageNumber):
-            let params = "page=\(pageNumber)"
+            let queryDict: [String: Any?] = [
+                "language": language ?? nil,
+                "page": pageNumber ?? nil]
+            let queryFromDict = queryDict.compactMapValues { $0 }.queryFromDictionary()
             
-            return "movie/\(id)/similar?\(params)"
+            return "movie/\(id)/similar?\(queryFromDict)"
         }
     }
 }

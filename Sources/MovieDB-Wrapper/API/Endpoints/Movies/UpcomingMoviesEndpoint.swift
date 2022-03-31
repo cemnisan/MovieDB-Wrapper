@@ -9,17 +9,25 @@ import Foundation
 
 enum UpcomingMoviesEndpoint: Endpoint
 {
-    case upcomingMovies(pageNumber: Int)
+    case upcomingMovies(language: String?,
+                        pageNumber: Int?,
+                        region: String?)
 }
 
 extension UpcomingMoviesEndpoint
 {
     public var path: String {
         switch self {
-        case .upcomingMovies(let pageNumber):
-            let params = "page=\(pageNumber)"
+        case .upcomingMovies(let language,
+                             let pageNumber,
+                             let region):
+            let queryDict: [String: Any?] = [
+                "language": language ?? nil,
+                "page": pageNumber ?? nil,
+                "region": region ?? nil]
+            let queryFromDict = queryDict.compactMapValues { $0 }.queryFromDictionary()
             
-            return "movie/upcoming/?\(params)"
+            return "movie/upcoming/?\(queryFromDict)"
         }
     }
 }

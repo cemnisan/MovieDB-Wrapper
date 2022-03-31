@@ -9,9 +9,28 @@ import Foundation
 
 public protocol MoviesServiceable
 {
-    func getPopularMovies(pageNumber: Int) async -> Result<PopularMovies, RequestError>
-    func getMovieDetails(id: Int) async  -> Result<MovieDetail, RequestError>
-    func getMovieReviews(id: Int, pageNumber: Int) async -> Result<MovieReviews, RequestError>
-    func getSimilarMovies(id: Int, pageNumber: Int) async -> Result<SimilarMovies, RequestError>
-    func getUpComingMovies(pageNumber: Int) async -> Result<UpComingMovies, RequestError>
+    func getPopularMovies(
+        language:String?,
+        pageNumber: Int?,
+        region: String?) async -> Result<PopularMovies, RequestError>
+    
+    func getMovieDetails(
+        id: Int,
+        language: String?,
+        appendToResponse: String?) async -> Result<MovieDetail, RequestError>
+    
+    func getMovieReviews(
+        id: Int,
+        language: String?,
+        pageNumber: Int?) async -> Result<MovieReviews, RequestError>
+    
+    func getSimilarMovies(
+        id: Int,
+        language: String?,
+        pageNumber: Int?) async -> Result<SimilarMovies, RequestError>
+    
+    func getUpComingMovies(
+        language: String?,
+        pageNumber: Int?,
+        region: String?) async -> Result<UpComingMovies, RequestError>
 }
