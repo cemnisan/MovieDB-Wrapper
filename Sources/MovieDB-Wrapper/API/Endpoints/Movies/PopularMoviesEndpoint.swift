@@ -25,9 +25,9 @@ extension PopularMoviesEndpoint
                 "language": language ?? nil,
                 "page": pageNumber ?? nil,
                 "region": region ?? nil]
-            let queryFromDict = queryDict.compactMapValues { $0 }.queryFromDictionary()
+            let queries = queryDict.makeQuery()
             
-            return "movie/popular/?\(queryFromDict)"
+            return "movie/popular/?\(queries)"
         }
     }
 }

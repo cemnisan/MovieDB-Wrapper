@@ -30,18 +30,12 @@ extension SearchMoviesEndpoint
                            let year,
                            let primaryReleaseYear):
             let sluggedQuery = query.addPlusToMiddleSpaces()
-            let queryDict:[String: Any?] = [
-                "language": language ?? nil,
-                "query": sluggedQuery,
-                "page": pageNumber ?? nil,
-                "include_adult": includeAdult ?? nil,
-                "region": region ?? nil,
-                "year": year ?? nil,
-                "primary_release_yeaer": primaryReleaseYear ?? nil
-            ]
-            let queryFromDict = queryDict.compactMapValues { $0 }.queryFromDictionary()
+            
+            let queryValue: [Any?] = [language, sluggedQuery, pageNumber, includeAdult, region, year, primaryReleaseYear]
+            let queryDictionary:[String: Any?] = queryValue.makeDictionary(key: K.SearchQueryKey.searchMovie)
+            let queries = queryDictionary.makeQuery()
            
-            return "search/movie?\(queryFromDict)"
+            return "search/movie?\(queries)"
         }
     }
 }

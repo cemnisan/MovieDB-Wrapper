@@ -24,9 +24,9 @@ extension MovieDetailsEndpoint
             let queryDict: [String: Any?] = [
                 "language": language ?? nil,
                 "append_to_response": appendToResponse ?? nil]
-            let queryFromDict = queryDict.compactMapValues { $0 }.queryFromDictionary()
+            let queries = queryDict.makeQuery()
             
-            return "movie/\(id)?\(queryFromDict)"
+            return "movie/\(id)?\(queries)"
         }
     }
 }

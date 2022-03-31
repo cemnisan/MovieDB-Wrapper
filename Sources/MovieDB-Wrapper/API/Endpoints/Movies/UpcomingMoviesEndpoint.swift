@@ -25,9 +25,9 @@ extension UpcomingMoviesEndpoint
                 "language": language ?? nil,
                 "page": pageNumber ?? nil,
                 "region": region ?? nil]
-            let queryFromDict = queryDict.compactMapValues { $0 }.queryFromDictionary()
+            let queries = queryDict.makeQuery()
             
-            return "movie/upcoming/?\(queryFromDict)"
+            return "movie/upcoming/?\(queries)"
         }
     }
 }

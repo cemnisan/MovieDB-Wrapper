@@ -24,9 +24,9 @@ extension SimilarMoviesEndpoint
             let queryDict: [String: Any?] = [
                 "language": language ?? nil,
                 "page": pageNumber ?? nil]
-            let queryFromDict = queryDict.compactMapValues { $0 }.queryFromDictionary()
+            let queries = queryDict.makeQuery()
             
-            return "movie/\(id)/similar?\(queryFromDict)"
+            return "movie/\(id)/similar?\(queries)"
         }
     }
 }

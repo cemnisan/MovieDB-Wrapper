@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 public protocol HTTPClient
 {
     func execute<M: Codable,
@@ -17,6 +16,11 @@ public protocol HTTPClient
 
 extension HTTPClient
 {
+    /// Generic function that makes a request to the service.
+    /// - Parameters:
+    ///   - endpoint: Accepts all `Endpoints` that have inherited the `Endpoint` enum.
+    ///   - responseModel: Accepts all `Models` with implemented `Codable` protocol.
+    /// - Returns: If the request is successfull return the given `Model` if not return `RequestError`
     public func execute<M: Codable,
                         E: Endpoint>(endpoint: E,
                                      responseModel: M.Type) async -> Result<M, RequestError>
@@ -42,5 +46,3 @@ extension HTTPClient
         }
     }
 }
-
-

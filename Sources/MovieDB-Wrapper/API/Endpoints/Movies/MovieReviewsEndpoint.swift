@@ -24,9 +24,9 @@ extension MovieReviewsEndpoint
             let queryDict: [String: Any?] = [
                 "language": language ?? nil,
                 "page": pageNumber ?? nil]
-            let queryFromDict = queryDict.compactMapValues { $0 }.queryFromDictionary()
+            let queries = queryDict.makeQuery()
             
-            return "movie/\(id)?\(queryFromDict)"
+            return "movie/\(id)?\(queries)"
         }
     }
 }
