@@ -15,16 +15,23 @@ public final class SearchService
 extension SearchService: HTTPClient, SearchServiceable
 {
     public func searchMovies(
-        with query: String,
-        language: String = "en-US",
-        pageNumber: Int = 1,
-        includeAdult: Bool = false) async -> Result<SearchMoviesResult, RequestError>
+        query: String,
+        language: String?,
+        pageNumber: Int?,
+        includeAdult: Bool?,
+        region: String?,
+        year: Int?,
+        primaryReleaseYear: Int?) async -> Result<SearchMoviesResult, RequestError>
     {
         return await execute(
-            endpoint: SearchMoviesEndpoint.searchMovies(language: language,
-                                                        query: query,
-                                                        pageNumber: pageNumber,
-                                                        includeAdult: includeAdult),
+            endpoint: SearchMoviesEndpoint.searchMovies(
+                language: language,
+                query: query,
+                pageNumber: pageNumber,
+                includeAdult: includeAdult,
+                region: region,
+                year: year,
+                primaryReleaseYear: primaryReleaseYear),
             responseModel: SearchMoviesResult.self)
     }
 }

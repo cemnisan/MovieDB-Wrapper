@@ -9,10 +9,13 @@ import Foundation
 
 public enum SearchMoviesEndpoint: Endpoint
 {
-    case searchMovies(language: String,
+    case searchMovies(language: String?,
                       query: String,
-                      pageNumber: Int,
-                      includeAdult: Bool)
+                      pageNumber: Int?,
+                      includeAdult: Bool?,
+                      region: String?,
+                      year: Int?,
+                      primaryReleaseYear: Int?)
 }
 
 extension SearchMoviesEndpoint
@@ -22,11 +25,20 @@ extension SearchMoviesEndpoint
         case .searchMovies(let language,
                            let query,
                            let pageNumber,
-                           let includeAdult):
+                           let includeAdult, let region, let year, let primaryReleaseYear):
             let sluggedQuery = query.addPlusToMiddleSpaces()
-            let params = "language=\(language)&query=\(sluggedQuery)&page=\(pageNumber)&include_adult=\(includeAdult)"
+            let params:[String: Any?] = [
+                "language": language,
+                "query": sluggedQuery,
+                "page": String(describing: pageNumber ?? nil),
+                "include_adult": String(describing: includeAdult ?? nil),
+                "region": region,
+                "year": String(describing: year ?? nil),
+                "primary_release_yeaer": String(describing: primaryReleaseYear ?? nil)
+            ]
+            let stringFromParams = params.compactMapValues { $0 }.stringFromHttpParameters()
             
-            return "search/movie?\(params)"
+            return "search/movie?\(stringFromParams)"
         }
     }
 }

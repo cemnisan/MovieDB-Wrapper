@@ -10,8 +10,11 @@ import Foundation
 public protocol SearchServiceable
 {
     func searchMovies(
-        with query: String,
-        language:String,
-        pageNumber: Int,
-        includeAdult: Bool) async -> Result<SearchMoviesResult, RequestError>
+        query: String,
+        language:String?,
+        pageNumber: Int?,
+        includeAdult: Bool?,
+        region: String?,
+        year: Int?,
+        primaryReleaseYear:Int?) async -> Result<SearchMoviesResult, RequestError>
 }
