@@ -28,7 +28,7 @@ extension MoviesViewModel: MoviesViewModelProtocol
     {
         Task(priority: .background)
         {
-            let results = await service.getPopularMovies(pageNumber: pageNumber)
+            let results = await service.getPopularMovies(language: nil, pageNumber: pageNumber, region: nil)
             
             switch results {
             case .success(let popularMovies):
@@ -58,6 +58,20 @@ extension MoviesViewModel: MoviesViewModelProtocol
             return true
         }
         return false
+    }
+    
+    func exSearch() {
+        let service: SearchServiceable = SearchService()
+        
+        Task(priority: .background) {
+            let results = await service.searchMovies(query: "joker", language: "en-US", pageNumber: 1, includeAdult: nil, region: nil, year: nil, primaryReleaseYear: nil)
+            switch results {
+            case .success(let res):
+                print(SearchMoviesEndpoint.searchMovies(language: "en-US", query: "joker", pageNumber: 1, includeAdult: nil, region: nil, year: nil, primaryReleaseYear: nil).url)
+            case .failure(let err):
+                print(err)
+            }
+        }
     }
 }
 

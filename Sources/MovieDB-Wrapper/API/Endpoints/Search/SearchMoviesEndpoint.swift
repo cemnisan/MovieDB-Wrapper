@@ -33,7 +33,7 @@ extension SearchMoviesEndpoint
             
             let queryValue: [Any?] = [language, sluggedQuery, pageNumber, includeAdult, region, year, primaryReleaseYear]
             let queryDictionary:[String: Any?] = queryValue.makeDictionary(key: K.SearchQueryKey.searchMovie)
-            let queries = queryDictionary.makeQuery()
+            let queries = queryDictionary.compactMapValues { $0 }.queryFromDictionary()
            
             return "search/movie?\(queries)"
         }
