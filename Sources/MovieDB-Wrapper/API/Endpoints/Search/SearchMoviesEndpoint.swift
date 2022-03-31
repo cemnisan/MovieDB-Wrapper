@@ -37,7 +37,7 @@ extension SearchMoviesEndpoint
                 "include_adult": includeAdult ?? nil,
                 "region": region ?? nil,
                 "year": year ?? nil,
-                "primary_release_yeaer": primaryReleaseYear!
+                "primary_release_yeaer": primaryReleaseYear ?? nil
             ]
             let stringFromParams = params.compactMapValues { $0 }.stringFromHttpParameters()
             
