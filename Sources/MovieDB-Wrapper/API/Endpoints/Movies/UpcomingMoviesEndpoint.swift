@@ -21,11 +21,9 @@ extension UpcomingMoviesEndpoint
         case .upcomingMovies(let language,
                              let pageNumber,
                              let region):
-            let queryDict: [String: Any?] = [
-                "language": language ?? nil,
-                "page": pageNumber ?? nil,
-                "region": region ?? nil]
-            let queries = queryDict.makeQuery()
+            let queryValue: [Any?] = [language, pageNumber, region]
+            let queryDict: [String: Any?] = queryValue.makeDictionary(key: K.SimilarQueryKey.threeKeys)
+            let queries = queryDict.compactMapValues { $0 }.queryFromDictionary()
             
             return "movie/upcoming/?\(queries)"
         }

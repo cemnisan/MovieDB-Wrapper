@@ -20,4 +20,13 @@ struct K
             "primary_release_year",
         ]
     }
+    
+    struct MoviesQueryKey {
+        static let detail = ["language", "append_to_response"]
+    }
+    
+    struct SimilarQueryKey {
+        static let twoKeys   = ["language", "page"]
+        static let threeKeys = ["language", "page", "region"]
+    }
 }

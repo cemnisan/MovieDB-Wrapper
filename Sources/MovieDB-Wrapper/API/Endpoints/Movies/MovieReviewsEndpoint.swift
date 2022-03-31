@@ -21,10 +21,9 @@ extension MovieReviewsEndpoint
         case .movieReviews(let id,
                            let language,
                            let pageNumber):
-            let queryDict: [String: Any?] = [
-                "language": language ?? nil,
-                "page": pageNumber ?? nil]
-            let queries = queryDict.makeQuery()
+            let queryValue: [Any?] = [language, pageNumber]
+            let queryDict: [String: Any?] = queryValue.makeDictionary(key: K.SimilarQueryKey.twoKeys)
+            let queries = queryDict.compactMapValues { $0 }.queryFromDictionary()
             
             return "movie/\(id)?\(queries)"
         }

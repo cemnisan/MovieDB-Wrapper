@@ -23,9 +23,4 @@ extension Dictionary
         
         return queryDict.joined(separator: "&")
     }
-    
-    func makeQuery() -> String
-    {
-        return self.compactMapValues { $0 }.queryFromDictionary()
-    }
 }

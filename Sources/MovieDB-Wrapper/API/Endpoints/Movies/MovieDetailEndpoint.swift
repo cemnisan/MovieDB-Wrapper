@@ -21,10 +21,9 @@ extension MovieDetailsEndpoint
         case .movieDetail(let id,
                           let language,
                           let appendToResponse):
-            let queryDict: [String: Any?] = [
-                "language": language ?? nil,
-                "append_to_response": appendToResponse ?? nil]
-            let queries = queryDict.makeQuery()
+            let queryValue: [Any?] = [language, appendToResponse]
+            let queryDictionary: [String: Any?] = queryValue.makeDictionary(key: K.MoviesQueryKey.detail)
+            let queries = queryDictionary.compactMapValues { $0 }.queryFromDictionary()
             
             return "movie/\(id)?\(queries)"
         }
