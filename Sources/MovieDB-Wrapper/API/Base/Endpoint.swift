@@ -20,7 +20,7 @@ public protocol Endpoint
 extension Endpoint
 {
     public var baseURL: String {
-        return Config.baseURL
+        return K.baseURL
     }
     
     public var method: HTTPMethod {

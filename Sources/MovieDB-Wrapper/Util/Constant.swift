@@ -9,6 +9,8 @@ import Foundation
 
 struct K
 {
+    static let baseURL = "https://api.themoviedb.org/3/"
+    
     struct MoviesPath
     {
         static let details  = "movie/%d"
@@ -21,6 +23,16 @@ struct K
     struct SearchPath
     {
         static let movies = "search/movie"
+    }
+    
+    struct GenresPath
+    {
+        static let movies = "genre/movie/list"
+    }
+    
+    struct DiscoverPath
+    {
+        static let movies = "discover/movie"
     }
     
     struct MoviesQueryKey
@@ -41,6 +53,48 @@ struct K
             "region",
             "year",
             "primary_release_year",
+        ]
+    }
+    
+    struct DiscoverQueryKey
+    {
+        static let discoverMovies = [
+            "language",
+            "region",
+            "sort_by",
+            "certification_country",
+            "certification",
+            "certification.lte",
+            "certification.gte",
+            "include_adult",
+            "include_video",
+            "page",
+            "primary_release_year",
+            "primary_release_date.gte",
+            "primary_release_date.lte",
+            "release_date.gte",
+            "release_date.lte",
+            "with_release_type",
+            "year",
+            "vote_count.gte",
+            "vote_count.lte",
+            "vote_average.gte",
+            "vote_average.lte",
+            "with_cast",
+            "with_crew",
+            "with_people",
+            "with_companies",
+            "with_genres",
+            "without_genres",
+            "with_keywords",
+            "without_keywords",
+            "with_runtime.gte",
+            "with_runtime.lte",
+            "with_original_language",
+            "with_watch_providers",
+            "watch_region",
+            "with_watch_monetization_types",
+            "without_companies"
         ]
     }
     
