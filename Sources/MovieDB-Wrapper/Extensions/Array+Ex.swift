@@ -7,9 +7,9 @@
 
 import Foundation
 
-extension Array
+extension Array where Element == Any?
 {
-    func makeDictionary(key: [String]) -> Dictionary<String, Any> {
+    func makeDictionary(key: [String]) -> Dictionary<String, Any?> {
         var dictionary: [String: Any] = [:]
         
         for i in 0..<self.count {

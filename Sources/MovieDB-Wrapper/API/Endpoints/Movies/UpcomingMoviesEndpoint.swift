@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum UpcomingMoviesEndpoint: Endpoint
+public enum UpcomingMoviesEndpoint: Endpoint
 {
     case upcomingMovies(language: String?,
                         pageNumber: Int?,
@@ -21,11 +21,14 @@ extension UpcomingMoviesEndpoint
         case .upcomingMovies(let language,
                              let pageNumber,
                              let region):
-            let queryValue: [Any?] = [language, pageNumber, region]
-            let queryDict: [String: Any?] = queryValue.makeDictionary(key: K.SimilarQueryKey.threeKeys)
+            let queryDict = [
+                language,
+                pageNumber,
+                region
+            ].makeDictionary(key: K.SimilarQueryKey.threeKeys)
             let queries = queryDict.compactMapValues { $0 }.queryFromDictionary()
             
-            return "movie/upcoming/?\(queries)"
+            return "\(K.MoviesPath.upcoming)?\(queries)"
         }
     }
 }

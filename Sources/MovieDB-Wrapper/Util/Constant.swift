@@ -9,7 +9,30 @@ import Foundation
 
 struct K
 {
-    struct SearchQueryKey {
+    struct MoviesPath
+    {
+        static let details  = "movie/%d"
+        static let reviews  = "movie/%d/reviews"
+        static let popular  = "movie/popular"
+        static let similar  = "movie/%d/similar"
+        static let upcoming = "movie/upcoming"
+    }
+    
+    struct SearchPath
+    {
+        static let movies = "search/movie"
+    }
+    
+    struct MoviesQueryKey
+    {
+        static let detail = [
+            "language",
+            "append_to_response"
+        ]
+    }
+        
+    struct SearchQueryKey
+    {
         static let searchMovie = [
             "language",
             "query",
@@ -21,12 +44,16 @@ struct K
         ]
     }
     
-    struct MoviesQueryKey {
-        static let detail = ["language", "append_to_response"]
-    }
-    
-    struct SimilarQueryKey {
-        static let twoKeys   = ["language", "page"]
-        static let threeKeys = ["language", "page", "region"]
+    struct SimilarQueryKey
+    {
+        static let twoKeys   = [
+            "language",
+            "page"
+        ]
+        static let threeKeys = [
+            "language",
+            "page",
+            "region"
+        ]
     }
 }

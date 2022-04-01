@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum SimilarMoviesEndpoint: Endpoint
+public enum SimilarMoviesEndpoint: Endpoint
 {
     case similarMovies(id: Int,
                        language: String?,
@@ -21,11 +21,13 @@ extension SimilarMoviesEndpoint
         case .similarMovies(let id,
                             let language,
                             let pageNumber):
-            let queryValue: [Any?] = [language, pageNumber]
-            let queryDict: [String: Any?] = queryValue.makeDictionary(key: K.SimilarQueryKey.twoKeys)
+            let queryDict = [
+                language,
+                pageNumber
+            ].makeDictionary(key: K.SimilarQueryKey.twoKeys)
             let queries = queryDict.compactMapValues { $0 }.queryFromDictionary()
             
-            return "movie/\(id)/similar?\(queries)"
+            return String(format: K.MoviesPath.similar, id) + "?\(queries)"
         }
     }
 }

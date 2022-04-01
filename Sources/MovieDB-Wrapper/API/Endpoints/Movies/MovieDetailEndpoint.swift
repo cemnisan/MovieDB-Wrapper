@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MovieDetailsEndpoint: Endpoint
+public enum MovieDetailsEndpoint: Endpoint
 {
     case movieDetail(id: Int,
                      language: String?,
@@ -21,11 +21,13 @@ extension MovieDetailsEndpoint
         case .movieDetail(let id,
                           let language,
                           let appendToResponse):
-            let queryValue: [Any?] = [language, appendToResponse]
-            let queryDictionary: [String: Any?] = queryValue.makeDictionary(key: K.MoviesQueryKey.detail)
-            let queries = queryDictionary.compactMapValues { $0 }.queryFromDictionary()
+            let queryDict = [
+                language,
+                appendToResponse
+            ].makeDictionary(key: K.MoviesQueryKey.detail)
+            let queries = queryDict.compactMapValues { $0 }.queryFromDictionary()
             
-            return "movie/\(id)?\(queries)"
+            return (String(format: K.MoviesPath.details, id) + "?\(queries)")
         }
     }
 }

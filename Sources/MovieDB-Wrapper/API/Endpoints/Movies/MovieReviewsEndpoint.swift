@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum MovieReviewsEndpoint: Endpoint
+public enum MovieReviewsEndpoint: Endpoint
 {
     case movieReviews(id: Int,
                       language: String?,
@@ -21,11 +21,13 @@ extension MovieReviewsEndpoint
         case .movieReviews(let id,
                            let language,
                            let pageNumber):
-            let queryValue: [Any?] = [language, pageNumber]
-            let queryDict: [String: Any?] = queryValue.makeDictionary(key: K.SimilarQueryKey.twoKeys)
+            let queryDict = [
+                language,
+                pageNumber
+            ].makeDictionary(key: K.SimilarQueryKey.twoKeys)
             let queries = queryDict.compactMapValues { $0 }.queryFromDictionary()
             
-            return "movie/\(id)?\(queries)"
+            return String(format: K.MoviesPath.reviews, id) + "?\(queries)"
         }
     }
 }
