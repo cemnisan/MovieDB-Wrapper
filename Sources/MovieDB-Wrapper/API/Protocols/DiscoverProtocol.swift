@@ -36,6 +36,7 @@ public protocol DiscoverServiceable
         withPeople: String?,
         withCompanies: String?,
         withGenres: String?,
+        withoutGenres: String?,
         withKeywords: String?,
         withoutKeywords: String?,
         withRunTimeGte: Int?,

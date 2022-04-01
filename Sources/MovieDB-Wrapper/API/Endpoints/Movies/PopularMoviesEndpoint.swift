@@ -26,7 +26,7 @@ extension PopularMoviesEndpoint
                 pageNumber,
                 region
             ].makeDictionary(key: K.SimilarQueryKey.threeKeys)
-            let queries = queryDict.compactMapValues { $0 }.queryFromDictionary()
+            let queries = queryDict.makeURLQuery()
             
             return "\(K.MoviesPath.popular)?\(queries)"
         }

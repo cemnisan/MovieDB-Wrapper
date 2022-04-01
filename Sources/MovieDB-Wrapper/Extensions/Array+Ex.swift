@@ -9,13 +9,14 @@ import Foundation
 
 extension Array where Element == Any?
 {
-    func makeDictionary(key: [String]) -> Dictionary<String, Any?> {
+    func makeDictionary(key: [String]) -> Dictionary<String, Any>
+    {
         var dictionary: [String: Any] = [:]
         
         for i in 0..<self.count {
             dictionary[key[i]] = self[i]
         }
         
-        return dictionary
+        return dictionary.compactMapValues { $0 }
     }
 }

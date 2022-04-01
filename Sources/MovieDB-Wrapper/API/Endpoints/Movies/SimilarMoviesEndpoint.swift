@@ -25,7 +25,7 @@ extension SimilarMoviesEndpoint
                 language,
                 pageNumber
             ].makeDictionary(key: K.SimilarQueryKey.twoKeys)
-            let queries = queryDict.compactMapValues { $0 }.queryFromDictionary()
+            let queries = queryDict.makeURLQuery()
             
             return String(format: K.MoviesPath.similar, id) + "?\(queries)"
         }

@@ -36,6 +36,7 @@ public enum MovieDiscoverEndpoint: Endpoint
         withPeople: String?,
         withCompanies: String?,
         withGenres: String?,
+        withoutGenres: String?,
         withKeywords: String?,
         withoutKeywords: String?,
         withRunTimeGte: Int?,
@@ -78,6 +79,7 @@ extension MovieDiscoverEndpoint
                                let withPeople,
                                let withCompanies,
                                let withGenres,
+                               let withoutGenres,
                                let withKeywords,
                                let withoutKeywords,
                                let withRunTimeGte,
@@ -114,6 +116,7 @@ extension MovieDiscoverEndpoint
                 withPeople,
                 withCompanies,
                 withGenres,
+                withoutGenres,
                 withKeywords,
                 withoutKeywords,
                 withRunTimeGte,
@@ -124,7 +127,7 @@ extension MovieDiscoverEndpoint
                 withWatchMonetizationTypes,
                 withoutCompanies
             ].makeDictionary(key: K.DiscoverQueryKey.discoverMovies)
-            let queries = queryDict.compactMapValues { $0 }.queryFromDictionary()
+            let queries = queryDict.makeURLQuery()
             
             return "\(K.DiscoverPath.movies)?\(queries)"
         }

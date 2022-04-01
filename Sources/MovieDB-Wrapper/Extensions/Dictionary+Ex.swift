@@ -9,7 +9,7 @@ import Foundation
 
 extension Dictionary
 {
-    func queryFromDictionary() -> String
+    func makeURLQuery() -> String
     {
         let queryDict = self.map { dict -> String in
             let key = dict.key

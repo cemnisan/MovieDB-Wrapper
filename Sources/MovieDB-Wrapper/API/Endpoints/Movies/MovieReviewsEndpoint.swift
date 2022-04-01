@@ -25,7 +25,7 @@ extension MovieReviewsEndpoint
                 language,
                 pageNumber
             ].makeDictionary(key: K.SimilarQueryKey.twoKeys)
-            let queries = queryDict.compactMapValues { $0 }.queryFromDictionary()
+            let queries = queryDict.makeURLQuery()
             
             return String(format: K.MoviesPath.reviews, id) + "?\(queries)"
         }

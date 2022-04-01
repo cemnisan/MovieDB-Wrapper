@@ -39,7 +39,7 @@ extension SearchMoviesEndpoint
                 year,
                 primaryReleaseYear
             ].makeDictionary(key: K.SearchQueryKey.searchMovie)
-            let queries = queryDict.compactMapValues { $0 }.queryFromDictionary()
+            let queries = queryDict.makeURLQuery()
            
             return K.SearchPath.movies + "?\(queries)"
         }

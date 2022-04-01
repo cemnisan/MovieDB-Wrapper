@@ -25,7 +25,7 @@ extension MovieDetailsEndpoint
                 language,
                 appendToResponse
             ].makeDictionary(key: K.MoviesQueryKey.detail)
-            let queries = queryDict.compactMapValues { $0 }.queryFromDictionary()
+            let queries = queryDict.makeURLQuery()
             
             return (String(format: K.MoviesPath.details, id) + "?\(queries)")
         }

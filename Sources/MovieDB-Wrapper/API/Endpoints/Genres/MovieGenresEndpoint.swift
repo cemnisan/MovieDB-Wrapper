@@ -18,7 +18,7 @@ extension MovieGenresEndpoint
         switch self {
         case .getMovieGenres(let language):
             let queryDict = [language].makeDictionary(key: ["language"])
-            let queries = queryDict.compactMapValues { $0 }.queryFromDictionary()
+            let queries = queryDict.makeURLQuery()
             
             return "\(K.GenresPath.movies)?\(queries)"
         }
