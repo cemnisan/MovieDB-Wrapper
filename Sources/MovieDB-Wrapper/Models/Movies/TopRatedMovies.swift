@@ -7,14 +7,14 @@
 
 import Foundation
 
-public struct DiscoverMoviesResult: Codable
+public struct TopRatedMoviesResult: Codable
 {
     public let page: Int
     public let results: [Movies]
     public let totalPages, totalResults: Int
 }
 
-extension DiscoverMoviesResult
+extension TopRatedMoviesResult
 {
     enum CodingKeys: String, CodingKey
     {

@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 public final class MovieService: HTTPClient, MoviesServiceable
 {
@@ -77,5 +78,30 @@ extension MovieService
                 pageNumber: pageNumber,
                 region: region),
             responseModel: UpComingMovies.self)
+    }
+    
+    public func getTopRatedMovies(
+        language: String?,
+        pageNumber: Int?,
+        region: String?) async -> Result<TopRatedMoviesResult, RequestError>
+    {
+        return await execute(
+            endpoint: TopRatedMoviesEndpoint.getTopRated(
+                language: language,
+                pageNumber: pageNumber,
+                region: region),
+            responseModel: TopRatedMoviesResult.self)
+    }
+    
+    public func getMoviePosterImage(imagePath: String) async throws -> UIImage
+    {
+        return try await execute(
+            endpoint: MovieImageEndpoint.getImage(image: .posterPath(path: imagePath)))
+    }
+    
+    public func getMovieBackdropImage(imagePath: String) async throws -> UIImage
+    {
+        return try await execute(
+            endpoint: MovieImageEndpoint.getImage(image: .backdropPath(path: imagePath)))
     }
 }

@@ -9,7 +9,8 @@ import Foundation
 
 struct K
 {
-    static let baseURL = "https://api.themoviedb.org/3/"
+    static let baseURL      = "https://api.themoviedb.org/3/"
+    static let baseImageURL = "https://image.tmdb.org/t/p/w500/"
     
     struct MoviesPath
     {
@@ -18,6 +19,7 @@ struct K
         static let popular  = "movie/popular"
         static let similar  = "movie/%d/similar"
         static let upcoming = "movie/upcoming"
+        static let topRated = "movie/top_rated"
     }
     
     struct SearchPath

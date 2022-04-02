@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 public protocol HTTPClient
 {
@@ -43,6 +44,21 @@ extension HTTPClient
             }
         } catch {
             return .failure(.unknown)
+        }
+    }
+    
+    public func execute(endpoint: MovieImageEndpoint) async throws -> UIImage
+    {
+        guard let request = endpoint.url else { throw RequestError.invalidURL }
+        
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request, delegate: nil)
+            guard (response as? HTTPURLResponse)?.statusCode == 200 else { throw RequestError.noResponse }
+            guard let image = UIImage(data: data) else { throw RequestError.decode }
+            
+            return image
+        } catch {
+            throw RequestError.unknown
         }
     }
 }
