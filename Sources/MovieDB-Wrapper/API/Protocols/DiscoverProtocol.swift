@@ -46,5 +46,5 @@ public protocol DiscoverServiceable
         watchRegion: String?,
         withWatchMonetizationTypes: String?,
         withoutCompanies: String?
-    ) async -> Result<DiscoverMoviesResult, RequestError>
+    ) async -> Result<DiscoverMoviesResult>
 }

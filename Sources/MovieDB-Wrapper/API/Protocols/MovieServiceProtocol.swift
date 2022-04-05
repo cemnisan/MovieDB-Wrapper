@@ -13,32 +13,32 @@ public protocol MoviesServiceable
     func getPopularMovies(
         language:String?,
         pageNumber: Int?,
-        region: String?) async -> Result<PopularMovies, RequestError>
+        region: String?) async -> Result<PopularMovies>
     
     func getMovieDetails(
         id: Int,
         language: String?,
-        appendToResponse: String?) async -> Result<MovieDetail, RequestError>
+        appendToResponse: String?) async -> Result<MovieDetail>
     
     func getMovieReviews(
         id: Int,
         language: String?,
-        pageNumber: Int?) async -> Result<MovieReviews, RequestError>
+        pageNumber: Int?) async -> Result<MovieReviews>
     
     func getSimilarMovies(
         id: Int,
         language: String?,
-        pageNumber: Int?) async -> Result<SimilarMovies, RequestError>
+        pageNumber: Int?) async -> Result<SimilarMovies>
     
     func getUpComingMovies(
         language: String?,
         pageNumber: Int?,
-        region: String?) async -> Result<UpComingMovies, RequestError>
+        region: String?) async -> Result<UpComingMovies>
     
     func getTopRatedMovies(
         language: String?,
         pageNumber: Int?,
-        region: String?) async -> Result<TopRatedMoviesResult, RequestError>
+        region: String?) async -> Result<TopRatedMoviesResult>
     
     func getMoviePosterImage(imagePath: String) async throws -> UIImage
     

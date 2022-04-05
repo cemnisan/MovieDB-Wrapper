@@ -50,7 +50,7 @@ extension DiscoverService
         withWatchProviders: String?,
         watchRegion: String?,
         withWatchMonetizationTypes: String?,
-        withoutCompanies: String?) async -> Result<DiscoverMoviesResult, RequestError>
+        withoutCompanies: String?) async -> Result<DiscoverMoviesResult>
     {
         return await execute(
             endpoint: MovieDiscoverEndpoint.getMovieDiscover(

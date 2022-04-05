@@ -9,6 +9,6 @@ import Foundation
 
 public protocol GenresServiceable
 {
-    func getMovieGenres(language: String?) async -> Result<GenresResult, RequestError>
+    func getMovieGenres(language: String?) async -> Result<GenresResult>
 }
 

@@ -18,7 +18,7 @@ extension MovieService
     public func getPopularMovies(
         language: String?,
         pageNumber: Int?,
-        region: String?) async -> Result<PopularMovies, RequestError>
+        region: String?) async -> Result<PopularMovies>
     {
         return await execute(
             endpoint: PopularMoviesEndpoint.popularMovies(
@@ -31,7 +31,7 @@ extension MovieService
     public func getMovieDetails(
         id: Int,
         language: String?,
-        appendToResponse: String?) async -> Result<MovieDetail, RequestError>
+        appendToResponse: String?) async -> Result<MovieDetail>
     {
         return await execute(
             endpoint: MovieDetailsEndpoint.movieDetail(
@@ -44,7 +44,7 @@ extension MovieService
     public func getMovieReviews(
         id: Int,
         language: String?,
-        pageNumber: Int?) async -> Result<MovieReviews, RequestError>
+        pageNumber: Int?) async -> Result<MovieReviews>
     {
         return await execute(
             endpoint: MovieReviewsEndpoint.movieReviews(
@@ -57,7 +57,7 @@ extension MovieService
     public func getSimilarMovies(
         id: Int,
         language: String?,
-        pageNumber: Int?) async -> Result<SimilarMovies, RequestError>
+        pageNumber: Int?) async -> Result<SimilarMovies>
     {
         return await execute(
             endpoint: SimilarMoviesEndpoint.similarMovies(
@@ -70,7 +70,7 @@ extension MovieService
     public func getUpComingMovies(
         language: String?,
         pageNumber: Int?,
-        region: String?) async -> Result<UpComingMovies, RequestError>
+        region: String?) async -> Result<UpComingMovies>
     {
         return await execute(
             endpoint: UpcomingMoviesEndpoint.upcomingMovies(
@@ -83,7 +83,7 @@ extension MovieService
     public func getTopRatedMovies(
         language: String?,
         pageNumber: Int?,
-        region: String?) async -> Result<TopRatedMoviesResult, RequestError>
+        region: String?) async -> Result<TopRatedMoviesResult>
     {
         return await execute(
             endpoint: TopRatedMoviesEndpoint.getTopRated(

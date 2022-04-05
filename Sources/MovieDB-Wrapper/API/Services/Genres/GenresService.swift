@@ -14,7 +14,7 @@ public final class GenresService: HTTPClient, GenresServiceable
 
 extension GenresService
 {
-    public func getMovieGenres(language: String?) async -> Result<GenresResult, RequestError>
+    public func getMovieGenres(language: String?) async -> Result<GenresResult>
     {
         return await execute(
             endpoint: MovieGenresEndpoint.getMovieGenres(language: language),

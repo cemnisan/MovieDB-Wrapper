@@ -16,5 +16,5 @@ public protocol SearchServiceable
         includeAdult: Bool?,
         region: String?,
         year: Int?,
-        primaryReleaseYear:Int?) async -> Result<SearchMoviesResult, RequestError>
+        primaryReleaseYear:Int?) async -> Result<SearchMoviesResult>
 }

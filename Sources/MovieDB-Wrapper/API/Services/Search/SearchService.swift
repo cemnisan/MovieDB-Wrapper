@@ -40,7 +40,7 @@ extension SearchService: HTTPClient, SearchServiceable
         includeAdult: Bool?,
         region: String?,
         year: Int?,
-        primaryReleaseYear: Int?) async -> Result<SearchMoviesResult, RequestError>
+        primaryReleaseYear: Int?) async -> Result<SearchMoviesResult>
     {
         return await execute(
             endpoint: SearchMoviesEndpoint.searchMovies(

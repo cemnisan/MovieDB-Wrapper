@@ -12,7 +12,7 @@ public protocol HTTPClient
 {
     func execute<M: Codable,
                  E: Endpoint>(endpoint: E,
-                              responseModel: M.Type) async -> Result<M, RequestError>
+                              responseModel: M.Type) async -> Result<M>
 }
 
 extension HTTPClient
@@ -24,7 +24,7 @@ extension HTTPClient
     /// - Returns: If the request is successfull return the given `Model` if not return `RequestError`
     public func execute<M: Codable,
                         E: Endpoint>(endpoint: E,
-                                     responseModel: M.Type) async -> Result<M, RequestError>
+                                     responseModel: M.Type) async -> Result<M>
     {
         guard let request = endpoint.url else { return .failure(.invalidURL) }
     
