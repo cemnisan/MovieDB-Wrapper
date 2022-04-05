@@ -22,12 +22,12 @@ public enum ImageType
     }
 }
 
-public enum MovieImageEndpoint: Endpoint
+public enum ImageEndpoint: Endpoint
 {
     case getImage(image: ImageType)
 }
 
-extension MovieImageEndpoint
+extension ImageEndpoint
 {
     public var baseURL: String {
         return K.baseImageURL

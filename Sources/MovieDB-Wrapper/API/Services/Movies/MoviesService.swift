@@ -92,16 +92,4 @@ extension MovieService
                 region: region),
             responseModel: TopRatedMoviesResult.self)
     }
-    
-    public func getMoviePosterImage(imagePath: String) async throws -> UIImage
-    {
-        return try await execute(
-            endpoint: MovieImageEndpoint.getImage(image: .posterPath(path: imagePath)))
-    }
-    
-    public func getMovieBackdropImage(imagePath: String) async throws -> UIImage
-    {
-        return try await execute(
-            endpoint: MovieImageEndpoint.getImage(image: .backdropPath(path: imagePath)))
-    }
 }

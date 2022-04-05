@@ -47,7 +47,7 @@ extension HTTPClient
         }
     }
     
-    public func execute(endpoint: MovieImageEndpoint) async throws -> UIImage
+    public func execute(endpoint: ImageEndpoint) async throws -> UIImage
     {
         guard let request = endpoint.url else { throw RequestError.invalidURL }
         

@@ -39,8 +39,4 @@ public protocol MoviesServiceable
         language: String?,
         pageNumber: Int?,
         region: String?) async -> Result<TopRatedMoviesResult>
-    
-    func getMoviePosterImage(imagePath: String) async throws -> UIImage
-    
-    func getMovieBackdropImage(imagePath: String) async throws -> UIImage
 }
