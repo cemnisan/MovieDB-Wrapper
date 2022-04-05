@@ -7,7 +7,12 @@
 
 import UIKit.UIImage
 
-public final class ImageService: HTTPClient, ImageServiceableProtocol
+public final class ImageService
+{
+    public init() { }
+}
+
+extension ImageService: HTTPClient, ImageServiceableProtocol
 {
     public func getMoviePosterImage(imagePath: String) async throws -> UIImage
     {
