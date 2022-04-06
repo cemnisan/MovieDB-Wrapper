@@ -47,6 +47,8 @@ public enum MovieDiscoverEndpoint: Endpoint
         withWatchMonetizationTypes: String?,
         withoutCompanies: String?
     )
+    
+    case getMovieDiscoverWithGenreID(language: String?, genreID: Int, pageNumber: Int?)
 }
 
 extension MovieDiscoverEndpoint
@@ -127,6 +129,12 @@ extension MovieDiscoverEndpoint
                 withWatchMonetizationTypes,
                 withoutCompanies
             ].makeDictionary(key: K.DiscoverQueryKey.discoverMovies)
+            let queries = queryDict.makeURLQuery()
+            
+            return "\(K.DiscoverPath.movies)?\(queries)"
+            
+        case .getMovieDiscoverWithGenreID(let language, let genreID, let pageNumber):
+            let queryDict = [language, genreID, pageNumber].makeDictionary(key: ["language", "with_genres", "page"])
             let queries = queryDict.makeURLQuery()
             
             return "\(K.DiscoverPath.movies)?\(queries)"

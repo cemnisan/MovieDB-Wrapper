@@ -47,4 +47,8 @@ public protocol DiscoverServiceable
         withWatchMonetizationTypes: String?,
         withoutCompanies: String?
     ) async -> Result<DiscoverMoviesResult>
+    
+    func getMovieDiscoverWithGenre(language: String?,
+                                   genreID: Int,
+                                   pageNumber: Int?) async -> Result<DiscoverMoviesResult>
 }

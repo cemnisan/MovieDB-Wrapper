@@ -92,4 +92,17 @@ extension DiscoverService
                 withoutCompanies: withoutCompanies),
             responseModel: DiscoverMoviesResult.self)
     }
+    
+    public func getMovieDiscoverWithGenre(
+        language: String?,
+        genreID: Int,
+        pageNumber: Int?) async -> Result<DiscoverMoviesResult>
+    {
+        return await execute(
+            endpoint: MovieDiscoverEndpoint.getMovieDiscoverWithGenreID(
+                language: language,
+                genreID: genreID,
+                pageNumber: pageNumber),
+            responseModel: DiscoverMoviesResult.self)
+    }
 }
