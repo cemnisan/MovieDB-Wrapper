@@ -25,10 +25,10 @@ extension MovieReviews
 }
 
 public struct MovieReviewsResult: Codable {
-    let author: String?
-    let authorDetails: AuthorDetails?
-    let content, createdAt, id, updatedAt: String?
-    let url: String?
+    public let author: String?
+    public let authorDetails: AuthorDetails?
+    public let content, createdAt, id, updatedAt: String?
+    public let url: String?
 }
 
 extension MovieReviewsResult
