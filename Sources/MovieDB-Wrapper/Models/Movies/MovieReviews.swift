@@ -9,9 +9,9 @@ import Foundation
 
 public struct MovieReviews: Codable
 {
-    public let id, page: Int?
-    public let results: [MovieReviewsResult]?
-    public let totalPages, totalResults: Int?
+    public let id, page: Int
+    public let results: [MovieReviewsResult]
+    public let totalPages, totalResults: Int
 }
 
 extension MovieReviews
@@ -25,10 +25,10 @@ extension MovieReviews
 }
 
 public struct MovieReviewsResult: Codable {
-    public let author: String?
-    public let authorDetails: AuthorDetails?
-    public let content, createdAt, id, updatedAt: String?
-    public let url: String?
+    public let author: String
+    public let authorDetails: AuthorDetails
+    public let content, createdAt, id, updatedAt: String
+    public let url: String
 }
 
 extension MovieReviewsResult
@@ -47,8 +47,8 @@ extension MovieReviewsResult
 
 public struct AuthorDetails: Codable
 {
-    public let name, username, avatarPath: String?
-    public let rating: Int?
+    public let name, username, avatarPath: String
+    public let rating: Int
 }
 
 extension AuthorDetails
