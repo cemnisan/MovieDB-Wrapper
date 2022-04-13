@@ -92,4 +92,14 @@ extension MovieService
                 region: region),
             responseModel: TopRatedMoviesResult.self)
     }
+    
+    public func getMovieCredits(id: Int,
+                                language: String) async -> Result<MovieCredits>
+    {
+        return await execute(
+            endpoint: MovieCreditsEndpoint.credits(
+                id: id,
+                language: language),
+            responseModel: MovieCredits.self)
+    }
 }

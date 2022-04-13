@@ -39,4 +39,6 @@ public protocol MoviesServiceable
         language: String?,
         pageNumber: Int?,
         region: String?) async -> Result<TopRatedMoviesResult>
+    func getMovieCredits(id: Int,
+                         language: String) async -> Result<MovieCredits>
 }

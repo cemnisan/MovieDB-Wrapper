@@ -47,8 +47,9 @@ extension MovieReviewsResult
 
 public struct AuthorDetails: Codable
 {
-    public let name, username, avatarPath: String
-    public let rating: Int
+    public let name, username: String
+    public let avatarPath: String?
+    public let rating: Int?
 }
 
 extension AuthorDetails
