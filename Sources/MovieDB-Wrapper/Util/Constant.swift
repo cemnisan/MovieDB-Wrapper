@@ -22,6 +22,10 @@ struct K
         static let topRated = "movie/top_rated"
     }
     
+    struct CreditsPath {
+        static let details = "/credit/%@"
+    }
+    
     struct SearchPath
     {
         static let movies = "search/movie"
